@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subreddits",
+  "info": {
+    "singularName": "subreddit",
+    "pluralName": "subreddits",
+    "displayName": "subreddit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "subreddit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "subreddits"
+    }
+  }
+}
