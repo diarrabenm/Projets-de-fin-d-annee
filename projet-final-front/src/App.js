@@ -7,6 +7,11 @@ import Post from './pages/post';
 import Profile from './pages/profile';
 import createPost from './pages/CreatePost';
 import NotFound from './pages/NotFound';
+import CommentSection from './components/comment';
+import Header from './components/Header';
+import  Sidebar from './components/Sidebar';
+
+
 
 function App() {
   return (
@@ -18,8 +23,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/createPost" element={<createPost />} />
         <Route path="/NotFound" element={<NotFound />} />
-
-        
+        <Route path="/commentsection" element={<CommentSection />} />
+        <Route path="/Header" element={<Header />} />
+        <Route path="/Sidebar" element={<Sidebar />} />
+       
+     
       </Routes>
     </Router>
   );
