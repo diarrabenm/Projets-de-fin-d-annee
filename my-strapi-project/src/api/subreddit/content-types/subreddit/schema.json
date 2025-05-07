@@ -19,11 +19,23 @@
     "Name": {
       "type": "string"
     },
-    "subreddit": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::article.article",
+      "target": "api::comment.comment",
       "inversedBy": "subreddits"
+    },
+    "create_by": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "subreddit"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "subreddit"
     }
   }
 }

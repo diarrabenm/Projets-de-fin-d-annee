@@ -1,0 +1,94 @@
+/* Style de la page d'accueil */
+.home-container {
+    font-family: Arial, sans-serif;
+    background-color: #f6f7f8;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #29cd73;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .create-post-btn {
+    display: inline-block;
+    background-color: #29cd73;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .create-post-btn:hover {
+    background-color: #29cd73;
+  }
+  
+  .posts-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .post-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .post-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .author {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .votes {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .comments-link {
+    color: #29cd73;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: text-decoration 0.2s ease;
+  }
+  
+  .comments-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .posts-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .posts-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  

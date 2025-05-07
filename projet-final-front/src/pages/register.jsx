@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './register.css'; // Assure-toi que le nom du fichier CSS correspond exactement (minuscules)
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -23,12 +24,18 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:1337/api/auth/register', formData);
-      if (response.data.success) {
+      const response = await axios.post('http://localhost:1337/api/auth/local/register', {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (response.data.jwt) {
         navigate('/login');
       }
     } catch (err) {
       setError("Une erreur s'est produite. Veuillez réessayer.");
+      console.error(err);
     }
   };
 
@@ -37,7 +44,7 @@ function Register() {
       <h2>Créer un compte</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="username">Nom d'utilisateur</label>
           <input
             type="text"
@@ -48,7 +55,7 @@ function Register() {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -59,7 +66,7 @@ function Register() {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Mot de passe</label>
           <input
             type="password"
@@ -70,9 +77,9 @@ function Register() {
             required
           />
         </div>
-        <button type="submit">S'inscrire</button>
+        <button type="submit" className="register-button">S'inscrire</button>
       </form>
-      <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
+      <p className="login-link">Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
     </div>
   );
 }

@@ -16,23 +16,34 @@
     }
   },
   "attributes": {
-    "voter": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::article.article",
-      "inversedBy": "posts"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::article.article",
-      "inversedBy": "post"
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "posts"
     },
     "content": {
       "type": "richtext"
     },
     "title": {
       "type": "string"
+    },
+    "subreddit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subreddit.subreddit",
+      "inversedBy": "posts"
+    },
+    "images": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

@@ -54,24 +54,6 @@
         "shared.slider"
       ]
     },
-    "posts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "voter"
-    },
-    "subreddits": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::subreddit.subreddit",
-      "mappedBy": "subreddit"
-    },
-    "post": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post",
-      "mappedBy": "user"
-    },
     "votes": {
       "type": "relation",
       "relation": "oneToMany",
