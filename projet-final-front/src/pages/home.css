@@ -1,94 +1,128 @@
-/* Style de la page d'accueil */
-.home-container {
-    font-family: Arial, sans-serif;
-    background-color: #f6f7f8;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* src/pages/home.css */
+
+/* Structure principale */
+.reddit-layout {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    min-height: 100vh; /* Garantir que le layout occupe toute la hauteur */
   }
   
-  h1 {
-    text-align: center;
-    color: #29cd73;
-    font-size: 36px;
+  /* Contenu principal */
+  .main-content {
+    flex: 1;
+    margin: 0 20px;
+    padding-top: 20px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
     margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* S'assurer qu'elle soit au-dessus du reste du contenu */
   }
   
-  .create-post-btn {
-    display: inline-block;
-    background-color: #29cd73;
-    color: white;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 6px;
+  .nav-link {
     text-decoration: none;
-    margin-bottom: 30px;
-    transition: background-color 0.2s ease;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
   }
   
-  .create-post-btn:hover {
-    background-color: #29cd73;
+  .nav-link:hover {
+    background-color: #444;
+    border-radius: 4px;
   }
   
+  .logout-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Sidebar gauche */
+  .sidebar {
+    width: 250px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Empêcher la réduction de taille */
+  }
+  
+  /* Sidebar droite */
+  .right-sidebar {
+    width: 250px;
+    margin-left: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Empêcher la réduction de taille */
+  }
+  
+  /* Liste des posts */
   .posts-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
     margin-top: 20px;
   }
   
   .post-card {
-    background-color: white;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .post-card:hover {
-    transform: translateY(-5px);
+  .post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
   
-  .post-card h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 10px;
+  .post-content {
+    margin: 10px 0;
   }
   
+  .votes,
   .author {
     font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
-  }
-  
-  .votes {
-    font-size: 16px;
     color: #555;
-    margin-bottom: 15px;
   }
   
   .comments-link {
-    color: #29cd73;
+    color: #007bff;
     text-decoration: none;
-    font-size: 14px;
+  }
+  
+  .no-posts {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  /* Suggestions in Right Sidebar */
+  .right-sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
     font-weight: bold;
-    transition: text-decoration 0.2s ease;
   }
   
-  .comments-link:hover {
-    text-decoration: underline;
+  .right-sidebar ul {
+    list-style-type: none;
+    padding: 0;
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
-    .posts-list {
-      grid-template-columns: 1fr 1fr;
-    }
+  .right-sidebar li {
+    margin-bottom: 8px;
   }
   
-  @media (max-width: 480px) {
-    .posts-list {
-      grid-template-columns: 1fr;
-    }
+  .right-sidebar li:hover {
+    color: #007bff;
+    cursor: pointer;
   }
   

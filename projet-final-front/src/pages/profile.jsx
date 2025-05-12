@@ -61,8 +61,8 @@ function Profile() {
             ) : (
               posts.map((post) => (
                 <div key={post.id} className="post-card">
-                  <h4>{post.attributes.title}</h4>
-                  <p>{post.attributes.content}</p>
+                  <h4>{post.title}</h4>
+                  <p>{post.content}</p>
                 </div>
               ))
             )}
