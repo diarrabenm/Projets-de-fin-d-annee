@@ -1,0 +1,118 @@
+/* Style de la page d'accueil */
+.home-container {
+  font-family: Arial, sans-serif;
+  background-color: #f6f7f8;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+    display: flex;
+  flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+  text-align: center;
+  color: #4CAF50;
+  font-size: 36px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* S'assurer qu'elle soit au-dessus du reste du contenu */
+  }
+  
+.create-post-btn {
+  display: inline-block;
+  background-color: #29cd73;
+    color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.create-post-btn:hover {
+  background-color: #29cd73;
+}
+
+  .posts-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+    margin-top: 20px;
+  width: 100%;
+  }
+  
+  .post-card {
+  background-color: white;
+    border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.no-posts {
+  text-align: center;
+  width: 100%;
+  grid-column: 1 / -1; /* Cette ligne fait s'étendre le message sur toutes les colonnes */
+  margin: 40px 0;
+  font-size: 18px;
+  color: #888;
+}
+.post-card:hover {
+  transform: translateY(-5px);
+  }
+  
+.post-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  width: 100%;
+  }
+  
+  .author {
+    font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.votes {
+  font-size: 16px;
+    color: #555;
+  margin-bottom: 15px;
+  width: 100%;
+  }
+  
+  .comments-link {
+  color: #29cd73;
+    text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: text-decoration 0.2s ease;
+  width: 100%;
+  display: block;
+  text-align: center;
+  }
+  
+.comments-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .posts-list {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .posts-list {
+      grid-template-columns: 1fr;
+  }
+  }

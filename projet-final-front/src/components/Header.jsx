@@ -1,20 +1,21 @@
 import { Link } from 'react-router-dom';
-import './Header.css';
-import logo from './logo.png'; // Assurez-vous que le chemin est correct
-import profile from './profile.png'; // Assurez-vous que le chemin est correct
-function Navbar() {
+import './Header.css'; // Assurez-vous d'inclure tous les styles nécessaires
+import logo from './logo.png';
+import profile from './profile.png';
+import RightSidebar from './RightSidebar'; // 👈 Ajout de l'import ici
+
+function Header() {
   return (
-    <nav className="reddit-navbar">
-      <div className="navbar-container">
-        {/* Logo et nom */}
-        <div className="navbar-brand">
-        <Link to="/home" className="logo-link">
+    <div className="header-container">
+      {/* Navbar */}
+      <nav className="reddit-navbar">
+        <div className="navbar-left">
+          <Link to="/home" className="logo-link">
             <img src={logo} alt="Logo" className="logo" />
             <span className="brand-name">hetic connect</span>
           </Link>
         </div>
 
-        {/* Barre de recherche */}
         <div className="search-bar">
           <input type="text" placeholder="Rechercher Reddit" />
           <button className="search-button">
@@ -22,37 +23,71 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Navigation principale */}
-        <div className="nav-links">
-          <Link to="/popular" className="nav-link">
-            <i className="fas fa-fire"></i>
-            <span>Populaire</span>
-          </Link>
-          <Link to="/all" className="nav-link">
-            <i className="fas fa-globe"></i>
-            <span>Tout</span>
-          </Link>
-          <Link to="/" className="profile-link">
-            <i className="fas fa-bolt"></i>
-            <img src= {profile} alt = '20' className='20'  />
-            <span></span>
-          </Link>
-        </div>
-        
-          
-        {/* Actions utilisateur */}
-        <div className="user-actions">
-          <button className="create-post-btn">
+        <div className="navbar-right">
+          <div className="nav-links">
+            <Link to="/popular" className="nav-link">
+              <i className="fas fa-fire"></i>
+              <span>Populaire</span>
+            </Link>
+            <Link to="/all" className="nav-link">
+              <i className="fas fa-globe"></i>
+              <span>Tout</span>
+            </Link>
+          </div>
+
+          <button className="icon-button">
             <i className="fas fa-plus"></i>
-            <span>Creer</span>
           </button>
+
           <div className="user-menu">
-            <i className="fas fa-user-circle user-icon"></i>
+            <Link to="/profile" className="nav-link">
+              <img src={profile} alt="profil" className="profile-icon" />
+            </Link>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <div className="sidebar-logo">
+          <span>HETIC CONNECT</span>
+        </div>
+
+        <nav className="sidebar-links">
+          <Link to="/home">
+            <i className="fas fa-home"></i> Accueil
+          </Link>
+          <Link to="/popular">
+            <i className="fas fa-fire"></i> Populaire
+          </Link>
+          <Link to="/new">
+            <i className="fas fa-bolt"></i> Nouveautés
+          </Link>
+          <Link to="/communities">
+            <i className="fas fa-users"></i> Communautés
+          </Link>
+          <Link to="/messages">
+            <i className="fas fa-envelope"></i> Messages
+          </Link>
+          <Link to="/saved">
+            <i className="fas fa-bookmark"></i> Enregistré
+          </Link>
+          <Link to="/profile">
+            <i className="fas fa-user"></i> Profil
+          </Link>
+          <Link to="/settings">
+            <i className="fas fa-cog"></i> Paramètres
+          </Link>
+          <Link to="/logout">
+            <i className="fas fa-sign-out-alt"></i> Déconnexion
+          </Link>
+        </nav>
+      </aside>
+
+      {/* Right Sidebar ajouté ici 👇 */}
+      <RightSidebar />
+    </div>
   );
 }
 
-export default Navbar;
+export default Header;

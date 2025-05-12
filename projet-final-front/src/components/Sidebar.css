@@ -1,9 +1,9 @@
 .sidebar {
     position: fixed;
-    top: 0;
+  top: 40px; /* <-- pour qu’elle commence sous la navbar */
     left: 0;
     width: 280px;
-    height: 100%;
+  height: calc(100% - 70px); /* hauteur dynamique sans dépasser */
     background: linear-gradient(180deg, #4CAF50, #2c3e50);
     color: white;
     display: flex;
@@ -11,7 +11,7 @@
     align-items: center;
     padding: 20px 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+  z-index: 999;
   }
   
   .sidebar-logo {
