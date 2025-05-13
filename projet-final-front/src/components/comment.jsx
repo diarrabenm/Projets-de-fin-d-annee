@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
@@ -21,39 +22,25 @@ const CommentSection = () => {
     setAuthor('');
   };
 
+  const handleDelete = (id) => {
+    setComments(comments.filter(comment => comment.id !== id));
+  };
+
   return (
-    <div style={{ 
-      maxWidth: '600px', 
-      margin: '0 auto', 
-      padding: '16px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <h2 style={{ 
-        fontSize: '1.5rem',
-        marginBottom: '16px',
-        color: '#333'
-      }}>
+    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '16px', fontFamily: 'Arial, sans-serif' }}>
+      <h2 style={{ fontSize: '1.5rem', marginBottom: '16px', color: '#333' }}>
         Commentaires ({comments.length})
       </h2>
 
       <form onSubmit={handleSubmit} style={{ marginBottom: '24px' }}>
-        <div style={{ 
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px'
-        }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <input
             type="text"
             placeholder="Votre nom"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             required
-            style={{
-              padding: '12px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              fontSize: '1rem'
-            }}
+            style={{ padding: '12px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '1rem' }}
           />
           
           <textarea
@@ -92,11 +79,11 @@ const CommentSection = () => {
       <div style={{ marginTop: '24px' }}>
         {comments.map((comment) => (
           <div key={comment.id} style={{ marginBottom: '16px' }}>
-            <div style={{ 
-              display: 'flex', 
+            <div style={{
+              display: 'flex',
               alignItems: 'flex-start',
               gap: '16px',
-              marginBottom: '16px'
+              marginBottom: '8px'
             }}>
               <div style={{
                 width: '40px',
@@ -113,26 +100,41 @@ const CommentSection = () => {
                 {comment.author.charAt(0).toUpperCase()}
               </div>
               
-              <div>
-                <div style={{ 
-                  display: 'flex', 
+              <div style={{ flex: 1 }}>
+                <div style={{
+                  display: 'flex',
                   alignItems: 'baseline',
-                  marginBottom: '4px'
+                  marginBottom: '4px',
+                  justifyContent: 'space-between'
                 }}>
-                  <span style={{ 
-                    fontWeight: 'bold',
-                    marginRight: '8px'
-                  }}>
-                    {comment.author}
-                  </span>
-                  <span style={{ 
-                    fontSize: '0.8rem',
-                    color: '#666'
-                  }}>
-                    {comment.timestamp}
-                  </span>
+                  <div>
+                    <span style={{
+                      fontWeight: 'bold',
+                      marginRight: '8px'
+                    }}>
+                      {comment.author}
+                    </span>
+                    <span style={{
+                      fontSize: '0.8rem',
+                      color: '#666'
+                    }}>
+                      {comment.timestamp}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => handleDelete(comment.id)}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#d32f2f',
+                      cursor: 'pointer',
+                      fontSize: '0.9rem'
+                    }}
+                  >
+                    Supprimer
+                  </button>
                 </div>
-                <p style={{ 
+                <p style={{
                   margin: 0,
                   color: '#333'
                 }}>
@@ -140,7 +142,7 @@ const CommentSection = () => {
                 </p>
               </div>
             </div>
-            <hr style={{ 
+            <hr style={{
               border: 'none',
               borderTop: '1px solid #eee',
               marginLeft: '56px'
@@ -148,6 +150,19 @@ const CommentSection = () => {
           </div>
         ))}
       </div>
+
+      <Link to="/home" style={{
+        marginTop: '24px',
+        display: 'inline-block',
+        padding: '12px 24px',
+        backgroundColor: '#1976d2',
+        color: 'white',
+        textDecoration: 'none',
+        borderRadius: '4px',
+        textAlign: 'center'
+      }}>
+        Retour à la page d'accueil
+      </Link>
     </div>
   );
 };

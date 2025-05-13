@@ -17,6 +17,18 @@
   "attributes": {
     "content": {
       "type": "string"
+    },
+    "subreddits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subreddit.subreddit",
+      "mappedBy": "user"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::post.post",
+      "inversedBy": "comments"
     }
   }
 }

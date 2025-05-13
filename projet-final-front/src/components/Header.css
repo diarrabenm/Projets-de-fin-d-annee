@@ -1,15 +1,17 @@
 .reddit-navbar {
-  background-color: #4CAF50;
-  color: white;
-  height: 48px;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #343536;
-  padding: 0 16px;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: #4CAF50;
+  border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  border: none;
 }
 
 .navbar-left {
@@ -24,8 +26,9 @@
 }
 
 .logo {
-  height: 32px;
-  margin-right: 8px;
+  margin-top: 1px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .brand-name {
@@ -43,12 +46,13 @@
 }
 
 .search-bar input {
+  bottom: 50px;
   width: 100%;
   background-color: #272729;
   border: 1px solid #343536;
   border-radius: 90px;
   padding: 10px 16px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .search-button {
@@ -114,6 +118,7 @@
 }
 
 .profile-icon {
+  margin-top: 5px;
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -136,7 +141,7 @@
 /* Modifications pour la sidebar */
 .sidebar {
   position: fixed;
-top: 40px; /* <-- pour qu’elle commence sous la navbar */
+top: 38px; /* <-- pour qu’elle commence sous la navbar */
   left: 0;
   width: 280px;
 height: calc(100% - 70px); /* hauteur dynamique sans dépasser */

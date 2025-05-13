@@ -19,7 +19,6 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10; /* S'assurer qu'elle soit au-dessus du reste du contenu */
   }
-  
 .create-post-btn {
   display: inline-block;
   background-color: #29cd73;
@@ -116,3 +115,166 @@ h1 {
       grid-template-columns: 1fr;
   }
   }
+/* src/pages/home.css */
+
+/* Structure principale */
+.reddit-layout {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    min-height: 100vh; /* Garantir que le layout occupe toute la hauteur */
+  }
+  
+  /* Contenu principal */
+  .main-content {
+    flex: 1;
+    margin: 0 20px;
+    padding-top: 20px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 5px;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000; 
+    border: none;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+  }
+  
+  .nav-link:hover {
+    background-color: #444;
+    border-radius: 4px;
+  }
+  
+  .logout-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Sidebar gauche */
+  .sidebar {
+    display: fixed;
+    width: 250px;
+    margin-right: 20px;
+    flex-shrink: 0; /* Empêcher la réduction de taille */
+  }
+  
+  /* Sidebar droite */
+  .right-sidebar {
+    width: 250px;
+    margin-left: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Empêcher la réduction de taille */
+  }
+  
+/* Conteneur principal */
+.home-container {
+  max-width: 1000px; /* Largeur maximale similaire à Reddit */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Liste des posts */
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Une seule colonne centrale */
+  gap: 20px; /* Espacement vertical entre les posts */
+  max-width: 700px; /* Largeur plus étroite pour le contenu */
+  margin: 0 auto; /* Centrage horizontal */
+}
+
+/* Carte de post */
+.post-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenu du post */
+.post-content {
+  margin: 15px 0;
+  line-height: 1.5;
+  color: #222;
+}
+
+/* Image */
+.post-image {
+  max-width: 100%;
+  max-height: 500px;
+  height: auto;
+  border-radius: 4px;
+  margin: 10px 0;
+  display: block;
+  object-fit: contain;
+}
+  
+  .post-content {
+    margin: 10px 0;
+  }
+  
+  .votes,
+  .author {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .comments-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .no-posts {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  /* Suggestions in Right Sidebar */
+  .right-sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .right-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .right-sidebar li {
+    margin-bottom: 8px;
+  }
+  
+  .right-sidebar li:hover {
+    color: #007bff;
+    cursor: pointer;
+  }
+  

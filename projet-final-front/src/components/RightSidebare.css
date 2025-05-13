@@ -68,3 +68,21 @@
 .explore-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+.header-with-refresh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .refresh-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .refresh-button:hover {
+    transform: rotate(90deg);
+  }
