@@ -30,6 +30,8 @@ const CreateSubreddit = () => {
       newErrors.description = 'Maximum 500 caractères';
     }
 
+    console.log('Errors:', newErrors);
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -51,8 +53,11 @@ const CreateSubreddit = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log('FormData:', formData);
     
     if (!validateForm()) return;
+    console.log('Validation réussie');
 
     const token = localStorage.getItem('token');
     if (!token) {

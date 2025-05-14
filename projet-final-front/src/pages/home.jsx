@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header'; // Import corrigé de la Navbar
 import RightSidebar from '../components/RightSidebar';
 import './home.css';
-import CommentSection from '../components/comment'; // <-- ajoute ça
 
 
 function Home() {

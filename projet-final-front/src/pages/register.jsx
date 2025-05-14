@@ -28,9 +28,14 @@ function Register() {
         username: formData.username,
         email: formData.email,
         password: formData.password,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        
       });
 
-      if (response.data.jwt) {
+      if (response.data.token) {
         navigate('/login');
       }
     } catch (err) {
@@ -49,7 +54,7 @@ function Register() {
           <input
             type="text"
             id="username"
-            name="username"
+            Name="username"
             value={formData.username}
             onChange={handleChange}
             required
@@ -79,7 +84,7 @@ function Register() {
         </div>
         <button type="submit" className="register-button">S'inscrire</button>
       </form>
-      <p className="login-link">Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
+      <p className="login-link">Vous avez déjà un compte ? <a href="/">Connectez-vous</a></p>
     </div>
   );
 }

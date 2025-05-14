@@ -7,14 +7,14 @@ const CommentSection = () => {
   const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     if (!newComment.trim() || !author.trim()) return;
 
     const comment = {
       id: Date.now(),
       author,
       text: newComment,
-      timestamp: new Date().toLocaleString(),
+      timestamp: new Date().toLocaleString(), // Format de date
     };
 
     setComments([comment, ...comments]);
@@ -23,7 +23,7 @@ const CommentSection = () => {
   };
 
   const handleDelete = (id) => {
-    setComments(comments.filter(comment => comment.id !== id));
+    setComments(comments.filter(comment => comment.id !== id));  
   };
 
   return (

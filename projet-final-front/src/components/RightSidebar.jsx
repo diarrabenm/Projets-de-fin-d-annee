@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // Importer React et useState, useEffect (les hooks)
 import axios from 'axios';
 import './RightSidebare.css';
 
@@ -14,7 +14,7 @@ function RightSidebar() {
       if (!token) {
         console.error('Token non trouvé. Assurez-vous d\'être connecté.');
         return;
-      }
+      } 
 
       const response = await axios.get('http://localhost:1337/api/subreddits', {
         headers: {
@@ -56,7 +56,7 @@ function RightSidebar() {
   useEffect(() => {
     fetchSubreddits();
     fetchPosts();
-  }, []);
+  }, );
 
   // Exemple : ici on filtre les subreddits créés par l'utilisateur avec un critère plus précis
   // (par exemple, en vérifiant un champ "userId" ou "creatorId" si votre API le permet)
@@ -64,7 +64,7 @@ function RightSidebar() {
 
   return (
     <div className="right-sidebar">
-      <h2>Suggestions</h2>
+      <h2>SUGGESTION</h2>
 
       <div className="suggestions">
         <div className="header-with-refresh">
